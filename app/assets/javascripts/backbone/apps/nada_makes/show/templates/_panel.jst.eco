@@ -1,0 +1,13 @@
+<div class="well">
+  <ul class="nav nav-pills nav-stacked">
+
+    <li><%= @nada_make.name %></li>
+
+    <% if @nada_make_years.length == 1: %>
+      <% for year, data in @nada_make_years:  %>
+         <li>
+           <%= year %>
+         </li>
+      <% end %>
+    <% end %>
+</div>

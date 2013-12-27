@@ -1,0 +1,23 @@
+//$navbar-default-bg: #312312;
+//$light-orange: #ff8c00;
+//$navbar-default-color: $light-orange;
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+a:hover {
+  text-decoration: none;
+}
+#wrap {
+  min-height: 100%;
+  height: auto;
+  padding: 0 0 60px;
+}
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+  text-align:center;
+}
+.container .text-muted {
+  margin: 20px 0;
+}

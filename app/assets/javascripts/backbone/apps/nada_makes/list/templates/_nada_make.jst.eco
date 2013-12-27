@@ -1,0 +1,1 @@
+  <%- @linkTo @name, "/nada_makes/" + @id %>

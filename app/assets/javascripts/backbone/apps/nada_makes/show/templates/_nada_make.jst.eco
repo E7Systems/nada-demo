@@ -1,0 +1,17 @@
+<% console.log @ %>
+<ul class="nav nav-pills">
+  <% for key, data in @nada_make_years:  %>
+    <li class="nada-make-year">
+      <% @year = key %>
+      <%- @linkTo key, "/nada_makes/" + @nada_make.id + "?year=" + key %>
+    </li>
+  <% end %>
+</ul>
+<% if !@nada_make_categories.nil?: %>
+  <ul class="nav nav-pills">
+    <% for category, data in @nada_make_categories:  %>
+       <li>
+         <%- @linkTo category.name, "/nada_models" + "?make_id=" + @nada_make.id +  "&make_name=" + @nada_make.name + "&category_id=" + category.id + "&category_name=" + category.name + "&year=" + @year %>
+       </li>
+    <% end %>
+<% end %>

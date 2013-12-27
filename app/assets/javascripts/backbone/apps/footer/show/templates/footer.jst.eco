@@ -1,0 +1,7 @@
+<footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">Blinker Footer</p>
+    </div>
+  </div>
+</footer>

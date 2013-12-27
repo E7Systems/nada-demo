@@ -1,0 +1,11 @@
+<div class="container">
+    <div id="nada-makes-list">
+        <div id="title-region"></div>
+        <section>
+            <div class="row">
+                <div id="panel-region" class="col-lg-2"></div>
+                <div id="makes-region" class="col-lg-10"></div>
+            </div>
+        </section>
+    </div>
+</div>
