@@ -6,7 +6,6 @@
     regions:
       titleRegion: "#title-region"
       panelRegion: "#panel-region"
-      newRegion: "#new-region"
       modelsRegion: "#models-region"
 
   class List.Title extends App.Views.ItemView
@@ -15,17 +14,17 @@
   class List.Panel extends App.Views.ItemView
     template: "nada_models/list/_panel"
 
-  class List.NadaMake extends App.Views.ItemView
-    template: "nada_models/list/_nada_make"
-    tagName: "li"
-    className: "nada-make"
+  class List.NadaModel extends App.Views.ItemView
+    template: "nada_models/list/_nada_model"
+    tagName: "span"
+    className: "nada-model"
 
   class List.Empty extends App.Views.ItemView
     template: "nada_models/list/_empty"
     tagName: "li"
 
-  class List.NadaMakes extends App.Views.CompositeView
+  class List.NadaModels extends App.Views.CompositeView
     template: "nada_models/list/_nada_models"
-    itemView: List.NadaMake
+    itemView: List.NadaModel
     emptyView: List.Empty
     itemViewContainer: "ul"

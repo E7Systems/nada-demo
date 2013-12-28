@@ -2,9 +2,8 @@
 
   class List.Controller extends App.Controllers.Base
     
-    initialize:  ->
+    initialize: ->
       makes = App.request "nada:makes:entities"
-#      console.log(makes)
 
       App.execute "when:fetched", makes, =>
         @layout = @getLayoutView()
@@ -34,9 +33,8 @@
     makesRegion: (makes)->
       makesView = @getMakesView makes
 
-      makesView.on "itemview:show:nada:make:clicked", (iv, make) ->
-        console.log ('nada-make clicked.')
-        #          App.vent.trigger "show:nada:make:clicked", make
+#      makesView.on "itemview:show:nada:make:clicked", (iv, make) ->
+#          App.vent.trigger "show:nada:make:clicked", make
       @layout.makesRegion.show makesView
 
 

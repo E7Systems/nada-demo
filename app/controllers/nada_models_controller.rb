@@ -8,12 +8,13 @@ class NadaModelsController < ApplicationController
     @year = params[:year]
     @category_id = params[:category_id]
     @category_name = params[:category_name]
-
+    #binding.pry()
     @nada_models = @nada_client.models(@nada_make_id, @year, @category_id)
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: { nada_models: @nada_models, nada_make_id: @nada_make_id, nada_make_name: @nada_make_name, nada_make_year: @year, category_id: @category_id, category_name:  @category_name } }
+      #format.json { render json: @nada_models, include: { nada_make_year: @year } }
     end
   end
 

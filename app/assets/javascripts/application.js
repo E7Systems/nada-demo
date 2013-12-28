@@ -16,6 +16,7 @@
 //= require backbone
 //= require backbone.marionette
 //= require backbone.syphon
+//= require backbone.queryparams
 //= require js-routes
 //= require_tree ./backbone/config
 //= require backbone/app

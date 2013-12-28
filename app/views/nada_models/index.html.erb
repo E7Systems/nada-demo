@@ -1,2 +1,14 @@
-<h1>NadaModels#index</h1>
-<p>Find me in app/views/nada_models/index.html.erb</p>
+<div id="wrap">
+  <div id="header-region"></div>
+  <div id="main-region" class="container"></div>
+  <div id="push"></div>
+</div>
+<div id="footer-region"></div>
+
+<%= javascript_tag do %>
+  $(function() {
+    Blinker.start({
+      environment: "<%= Rails.env %>"
+    });
+  });
+<% end %>

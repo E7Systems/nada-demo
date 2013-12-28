@@ -2,28 +2,31 @@
 
   class List.Controller extends App.Controllers.Base
 
-    listModels: ->
-      models = App.request "nada:models:entities"
-
+    initialize: (options) ->
+      models = App.request "nada:models:entities", options
+      console.log(models)
       App.execute "when:fetched", models, =>
         @layout = @getLayoutView()
 
         @listenTo @layout, "close", @close
 
         @listenTo @layout, "show", =>
-          @titleRegion()
-          @panelRegion()
+          @titleRegion models
+          @panelRegion models
           @modelsRegion models
 
         @show @layout
 
+    onClose: ->
+      console.info "closing controller!"
 
-    titleRegion: ->
-      titleView = @getTitleView()
+    titleRegion: (models) ->
+      console.log(models)
+      titleView = @getTitleView(models)
       @layout.titleRegion.show titleView
 
     panelRegion: (models) ->
-      panelView = @getPanelView()
+      panelView = @getPanelView(models)
 
       @layout.panelRegion.show panelView
 
@@ -36,11 +39,13 @@
     getLayoutView: ->
       new List.Layout
 
-    getTitleView: ->
+    getTitleView: (models) ->
       new List.Title
+        collection: models
 
-    getPanelView: ->
+    getPanelView: (models) ->
       new List.Panel
+        collection: models
 
     getModelsView: (models)->
       new List.NadaModels

@@ -6,7 +6,6 @@
     regions:
       titleRegion: "#title-region"
       panelRegion: "#panel-region"
-      newRegion: "#new-region"
       makesRegion: "#makes-region"
 
   class Show.Title extends App.Views.ItemView

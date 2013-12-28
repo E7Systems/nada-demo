@@ -2,9 +2,10 @@
 
   class Show.Controller extends App.Controllers.Base
 
-    initialize: (id) ->
-      make  = App.request "nada:make:entity", id
-      console.log(make)
+    initialize: (options) ->
+
+      make  = App.request "nada:make:entity", options.id, options.year
+
       App.execute "when:fetched", make, =>
         @layout = @getLayoutView()
 
@@ -31,9 +32,6 @@
 
     makesRegion: (make)->
       makeView = @getMakeView(make)
-
-#      @listenTo makeView, "nada:make:year:clicked", (model) ->
-#        App.vent.trigger "nada:make:year:clicked", model
 
       @layout.makesRegion.show makeView
 

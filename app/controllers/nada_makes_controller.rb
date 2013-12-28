@@ -1,5 +1,5 @@
 class NadaMakesController < ApplicationController
-  respond_to :json
+  #respond_to :json
 
   before_filter :load_nada_client
 
@@ -14,7 +14,7 @@ class NadaMakesController < ApplicationController
   def show
     @nada_make_years = []
     @nada_make_categories = []
-    #params[:year] = 2008
+    # TODO wireup Backbone to maintain original makes array so only nada_make_id needed
     makes =  @nada_client.makes
     @nada_make = makes.find { |make| make.id == params[:id].to_i }
     #binding.pry

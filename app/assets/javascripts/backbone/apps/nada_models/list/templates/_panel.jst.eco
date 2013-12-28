@@ -1,0 +1,7 @@
+<div class="well">
+  <ul class="nav nav-pills nav-stacked">
+
+    <li><%= @items[0].nada_make_name %></li>
+    <li><%= @items[0].nada_make_year %></li>
+    <li><%= @items[0].category_name %></li>
+</div>

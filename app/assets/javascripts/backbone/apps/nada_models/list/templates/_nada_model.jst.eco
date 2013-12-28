@@ -1,0 +1,3 @@
+<% for model, data in @nada_models:  %>
+  <li><%- @linkTo model.name, "/nada_models/" + model.id + "?year=" + @nada_make_year %></li>
+<% end %>
