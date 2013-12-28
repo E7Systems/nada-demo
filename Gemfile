@@ -17,6 +17,8 @@ gem 'thin'
 gem 'active_model_serializers'
 gem 'gon'
 gem 'js-routes'
+gem 'virtus', '~> 1.0.0'
+gem 'rest-client'
 
 gem 'nada', git: "https://github.com/elchingon/nada.git"
 

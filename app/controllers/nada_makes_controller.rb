@@ -17,7 +17,7 @@ class NadaMakesController < ApplicationController
     # TODO wireup Backbone to maintain original makes array so only nada_make_id needed
     makes =  @nada_client.makes
     @nada_make = makes.find { |make| make.id == params[:id].to_i }
-    #binding.pry
+
     @nada_make_categories = @nada_client.categories(@nada_make, params[:year]) if params[:year].present?
 
     if params[:year].present?

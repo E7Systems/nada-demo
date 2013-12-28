@@ -2,8 +2,8 @@
 
   class NadaMakesApp.Router extends Marionette.AppRouter
     appRoutes:
-      "nada_makes/:id(?year=:year)" : "showNadaMake"
       "nada_makes"     : "listNadaMakes"
+      "nada_makes/:id(?year=:year)" : "showNadaMake"
 
   API =
     listNadaMakes: ->

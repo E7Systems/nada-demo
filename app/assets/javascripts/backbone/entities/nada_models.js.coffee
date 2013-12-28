@@ -2,7 +2,7 @@
 
   class Entities.NadaModel extends App.Entities.Model
     url: ->
-      Routes.nada_model_path(this.id, this.get('options'))
+      Routes.nada_model_path(this.id, this.get('options')  )
 
   class Entities.NadaModelsCollection extends App.Entities.Collection
     model: Entities.NadaModel
@@ -19,9 +19,8 @@
       models
 
     getNadaModel: (id, options) ->
-      model = new Entities.NadaModels
+      model = new Entities.NadaModel
         id: id
-        url: Routes.nada_model_path(id, options)
         options: options
       model.fetch()
       model

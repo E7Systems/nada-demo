@@ -3,8 +3,9 @@
   class List.Controller extends App.Controllers.Base
 
     initialize: (options) ->
+
       models = App.request "nada:models:entities", options
-      console.log(models)
+
       App.execute "when:fetched", models, =>
         @layout = @getLayoutView()
 
@@ -21,8 +22,8 @@
       console.info "closing controller!"
 
     titleRegion: (models) ->
-      console.log(models)
       titleView = @getTitleView(models)
+
       @layout.titleRegion.show titleView
 
     panelRegion: (models) ->
