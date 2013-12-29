@@ -1,7 +1,9 @@
+<h3>Choose a Trim</h3>
+
 <ul class="nav nav-pills">
   <% for trim, data in @trims:  %>
      <li>
-       <%- @linkTo trim.name, "#" %>
+       <%- @linkTo trim.name, "nada_vehicle/" + trim.id + "?vehicle_name=" + trim.name + "&nada_make_id=" + @nada_make_id + "&nada_make_name=" + @nada_make_name + "&nada_model_id=" + @nada_model_id + "&nada_model_name=" + @nada_model_name + "&category_id=" + @category_id + "&category_name=" + @category_name + "&year=" + @year  %>
      </li>
   <% end %>
 </ul>

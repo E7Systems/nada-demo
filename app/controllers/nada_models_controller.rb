@@ -24,7 +24,7 @@ class NadaModelsController < ApplicationController
 
     respond_to do |format|
       format.json {
-                    render json: { trims: @trims, id: @nada_model_id, nada_model_name: @nada_model_name, year: @year,
+                    render json: { trims: @trims, nada_model_id: @nada_model_id, nada_model_name: @nada_model_name, year: @year,
                                    nada_make_name: @nada_make_name, nada_make_id: @nada_make_id, category_id: @category_id, category_name: @category_name }
                   }
     end
@@ -35,10 +35,10 @@ class NadaModelsController < ApplicationController
   def set_params
     @nada_make_id = params[:nada_make_id]
     @nada_make_name = params[:nada_make_name]
+    @nada_model_name = params[:nada_model_name]
     @year = params[:year]
     @category_id = params[:category_id]
     @category_name = params[:category_name]
-    @nada_model_name = params[:nada_model_name]
   end
 
   def load_nada_client

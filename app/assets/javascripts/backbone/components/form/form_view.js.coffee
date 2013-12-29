@@ -6,12 +6,14 @@
     tagName: "form"
     attributes: ->
       "data-type": @getFormDataType()
+      "role": @getFormRole()
+      "class": @getFormClass()
 
     regions:
       formContentRegion: "#form-content-region"
 
     ui:
-      buttonContainer: "ul.inline-list"
+      buttonContainer: "ul.list-inline"
 
     triggers:
       "submit": "form:submit"
@@ -42,6 +44,12 @@
 
     getFormDataType: ->
       if @model.isNew() then "new" else "edit"
+
+    getFormRole: ->
+      "form"
+
+    getFormClass: ->
+      "form"
 
     changeErrors: (model, errors, options) ->
       if @config.errors

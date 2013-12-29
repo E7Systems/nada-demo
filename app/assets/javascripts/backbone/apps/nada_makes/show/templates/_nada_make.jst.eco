@@ -1,12 +1,17 @@
-<ul class="nav nav-pills">
-  <% for key, data in @nada_make_years:  %>
-    <li class="nada-make-year">
-      <% @year = key %>
-      <%- @linkTo key, "/nada_makes/" + @nada_make.id + "?year=" + key %>
-    </li>
-  <% end %>
-</ul>
-<% if !@nada_make_categories.nil?: %>
+<% if @nada_make_years.length > 0: %>
+   <h3>Choose a Year</h3>
+  <ul class="nav nav-pills">
+    <% for key, data in @nada_make_years:  %>
+      <li class="nada-make-year">
+        <% @year = key %>
+        <%- @linkTo key, "/nada_makes/" + @nada_make.id + "?year=" + key %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% if @nada_make_categories.length > 0: %>
+  <h3>Choose a Category</h3>
+
   <ul class="nav nav-pills">
     <% for category, data in @nada_make_categories:  %>
        <li>

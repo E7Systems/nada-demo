@@ -2,7 +2,7 @@
 
   class NadaModelsApp.Router extends Marionette.AppRouter
     appRoutes:
-      "nada_models"          : "listModels"
+      "nada_models"    : "listModels"
       "nada_model/:id" : "showModel"
 
   API =

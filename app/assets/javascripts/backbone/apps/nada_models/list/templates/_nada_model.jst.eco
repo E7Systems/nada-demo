@@ -1,5 +1,8 @@
-<% for model, data in @nada_models:  %>
-  <li>
-    <%- @linkTo model.name, "/nada_model/" + model.id + "?year=" + @year + "&nada_model_name=" + model.name + "&nada_make_id=" + @nada_make_id + "&nada_make_name=" + @nada_make_name + "&category_id=" + @category_id + "&category_name=" + @category_name %>
-  </li>
-<% end %>
+<h3>Choose a Model</h3>
+<ul class="nav nav-pills">
+  <% for model, data in @nada_models:  %>
+    <li>
+      <%- @linkTo model.name, "/nada_model/" + model.id + "?year=" + @year + "&nada_model_name=" + model.name + "&nada_make_id=" + @nada_make_id + "&nada_make_name=" + @nada_make_name + "&category_id=" + @category_id + "&category_name=" + @category_name %>
+    </li>
+  <% end %>
+</ul>

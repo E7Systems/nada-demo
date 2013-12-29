@@ -3,8 +3,8 @@
   class Show.Controller extends App.Controllers.Base
 
     initialize: (options) ->
-
-      model  = App.request "nada:model:entity", options.id, options.options
+      { id, options } = options
+      model  = App.request "nada:model:entity", id, options
 
       App.execute "when:fetched", model, =>
         @layout = @getLayoutView()
@@ -23,6 +23,7 @@
 
     titleRegion: (model) ->
       titleView = @getTitleView(model)
+
       @layout.titleRegion.show titleView
 
     panelRegion: (model) ->

@@ -1,0 +1,26 @@
+<fieldset>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <label>Mileage: </label>
+      <input type="text" name="mileage" class="vehicle-mileage form-control input-lg" placeholder="Mileage" />
+      <br />
+    </div>
+  </div>
+
+  <% if @options.length > 0: %>
+    <div>
+      <label class="right inline">Optional Equipment</label>
+    </div>
+
+    <ul style="list-style:none;">
+      <% for option, data in @options:  %>
+        <li>
+          <input type="checkbox" name="options" class="vehicle-options" value="<%= option.code %>" <%- 'checked="checked"' if option.standard == true %> />
+          <%= option.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+</fieldset>

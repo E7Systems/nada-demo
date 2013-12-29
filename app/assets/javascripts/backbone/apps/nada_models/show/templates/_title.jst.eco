@@ -1,12 +1,12 @@
 <div id="page-title">
   <div class="row">
     <div class="col-lg-12">
-      <h1>
+      <h2>
         <%- @linkTo "Makes", "/nada_makes" %> -
         <%- @nada_make_name %> -
         <%- @category_name %> -
         <%- @nada_model_name %>
-      </h1>
+      </h2>
     </div>
   </div>
 </div>
