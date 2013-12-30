@@ -19,10 +19,15 @@
     tagName: "div"
     className: "nada-vehicle-details"
 
-    events: ->
-      "form.submit" : "nada:vehicle:price"
+    modelEvents:
+      "updated":  "render"
+
+    events:
+      "click .vehicle-back": ->
+        location.reload()
 
     form:
       buttons:
         primary: "Get Price"
         cancel: false
+

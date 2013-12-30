@@ -3,7 +3,6 @@ class NadaVehiclesController < ApplicationController
   before_filter :load_nada_client
   before_filter :set_params
 
-
   def show
     @vehicle_id = params[:id].to_i
 
@@ -11,18 +10,22 @@ class NadaVehiclesController < ApplicationController
 
     respond_to do |format|
       format.json {
-        render json: { options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name, nada_model_name: @nada_model_name, year: @year,
+        render json: { vehicle_options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name, nada_model_name: @nada_model_name, year: @year,
                        nada_make_name: @nada_make_name, nada_make_id: @nada_make_id, category_id: @category_id, category_name: @category_name }
       }
     end
   end
 
-  def get_price
-    @options = params[:options]
+  def update
+    @options = params[:vehicle_options].map{ |k, v| Nada::Models::Option.new(code:  k.to_i)  if v == true }.compact
     @mileage = params[:mileage]
-
     @price_object = @nada_client.used_price(@vehicle_id, @options, @mileage)
+
+    respond_to do |format|
+      format.json { render json: { price_object: @price_object, vehicle_options: @options, vehicle_id: @vehicle_id } }
+    end
   end
+
 
   protected
 

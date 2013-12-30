@@ -1,26 +1,93 @@
-<fieldset>
+<% if @price_object: %>
+  <a class="vehicle-back btn btn-inverse" href="#">Change Search</a>
 
-  <div class="row">
-    <div class="col-xs-4">
-      <label>Mileage: </label>
-      <input type="text" name="mileage" class="vehicle-mileage form-control input-lg" placeholder="Mileage" />
-      <br />
-    </div>
+  <h3>Values</h3>
+  <div class="table-responsive">
+    <table class="table table-hover text-right" >
+      <thead>
+        <tr class="active">
+          <th></th>
+          <th class="text-right">Rough Trade In</th>
+          <th class="text-right">Average Trade In</th>
+          <th class="text-right">Clean Trade In</th>
+          <th class="text-right">Clean Retail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Base Price</b></td>
+          <td>$<%= @price_object.base_rough_trade_in_price %></td>
+          <td>$<%= @price_object.base_average_trade_in_price %></td>
+          <td>$<%= @price_object.base_clean_trade_in_price %></td>
+          <td>$<%= @price_object.base_clean_retail_price %></td>
+        </tr>
+        <tr>
+          <td><b>Mileage (<%= @price_object.mileage %>)</b></td>
+          <td><%= @price_object.mileage_adjustment %></td>
+          <td><%= @price_object.mileage_adjustment %></td>
+          <td><%= @price_object.mileage_adjustment %></td>
+          <td><%= @price_object.mileage_adjustment %></td>
+        </tr>
+        <tr>
+          <td><b>Total Base Price</b></td>
+          <td>$<%= @price_object.total_rough_trade_in_price %></td>
+          <td>$<%= @price_object.total_average_trade_in_price %></td>
+          <td>$<%= @price_object.total_clean_trade_in_price %></td>
+          <td>$<%= @price_object.total_clean_retail_price %></td>
+        </tr>
+
+        <tr>
+          <td><b>Options</b></td>
+          <td><%= @price_object.total_option_rough_trade_in_price %></td>
+          <td><%= @price_object.total_option_average_trade_in_price %></td>
+          <td><%= @price_object.total_option_clean_trade_in_price %></td>
+          <td><%= @price_object.total_option_average_trade_in_price %></td>
+        </tr>
+
+        <tr class="success">
+          <td><b>Total Price with options</b></td>
+          <td>$<%= Number(@price_object.total_rough_trade_in_price) + Number(@price_object.total_option_rough_trade_in_price) %>.00</td>
+          <td>$<%= Number(@price_object.total_average_trade_in_price) + Number(@price_object.total_option_average_trade_in_price) %>.00</td>
+          <td>$<%= Number(@price_object.total_clean_trade_in_price) + Number(@price_object.total_option_clean_trade_in_price) %>.00</td>
+          <td>$<%= Number(@price_object.total_clean_retail_price) + Number(@price_object.total_option_average_trade_in_price) %>.00</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <% if @options.length > 0: %>
-    <div>
-      <label class="right inline">Optional Equipment</label>
+<% else: %>
+
+  <fieldset>
+    <div class="row">
+      <div class="col-xs-4">
+        <label>Mileage: </label>
+        <input type="text" name="mileage" class="vehicle-mileage form-control input-lg" placeholder="Mileage" />
+        <br />
+      </div>
+
     </div>
+    <div class="row">
+      <input type="hidden" name="vehicle_id" value="<%= @vehicle_id %>" />
+    </div>
+    <% if @vehicle_options.length > 0: %>
+      <div class="row">
+        <div>
+          <label class="right inline">Optional Equipment</label>
+        </div>
 
-    <ul style="list-style:none;">
-      <% for option, data in @options:  %>
-        <li>
-          <input type="checkbox" name="options" class="vehicle-options" value="<%= option.code %>" <%- 'checked="checked"' if option.standard == true %> />
-          <%= option.name %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+        <ul style="list-style:none;">
+          <% for option in @vehicle_options:  %>
+            <li>
+              <input type="checkbox" name="vehicle_options[<%= option.code %>]" class="vehicle-options" value="<%= option.code %>" <%- 'checked="checked"' if option.standard == true %> />
+              <%= option.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-</fieldset>
+    <div class="row">
+      <button type="submit" class="btn btn-primary">Get Price</button>
+    </div>
+  </fieldset>
+<% end %>

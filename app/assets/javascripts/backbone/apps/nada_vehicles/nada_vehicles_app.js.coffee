@@ -3,7 +3,6 @@
   class NadaVehiclesApp.Router extends Marionette.AppRouter
     appRoutes:
       "nada_vehicle/:id"        : 'showVehicle'
-      "nada_vehicles/get_price" : 'getPrice'
 
   API =
     showVehicle: (id, options) ->
@@ -11,11 +10,10 @@
         id: id
         options: options
 
-    getPrice: ->
-      NadaVehiclesApp.Show.Controller.getPrice()
-
-  App.vent.on "nada:vehicle:price",  ->
-    API.getPrice()
+#  App.vent.on "nada:vehicle:updated", (data) ->
+#     console.log(data.get("price_object"))
+#    App.navigate Routes.nada_vehicle_price_path
+#    API.getPrice(data)
 
   App.addInitializer ->
     new NadaVehiclesApp.Router

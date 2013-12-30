@@ -1,0 +1,2 @@
+<%= @price_object.base_average_trade_in_price %>
+price

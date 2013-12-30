@@ -30,6 +30,7 @@ class NadaModelsController < ApplicationController
     end
   end
 
+
   protected
 
   def set_params

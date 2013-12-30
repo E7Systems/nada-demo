@@ -6,6 +6,9 @@
       { id, options } = options
       vehicle  = App.request "nada:vehicle:entity", id, options
 
+#      @listenTo vehicle, "updated", ->
+#        App.vent.trigger "nada:vehicle:updated", vehicle
+
       App.execute "when:fetched", vehicle, =>
         @layout = @getLayoutView()
 
@@ -21,6 +24,9 @@
     onClose: ->
       console.info "closing controller!"
 
+    reloadForm: ->
+      console.log("Reload form")
+
     titleRegion: (vehicle) ->
       titleView = @getTitleView(vehicle)
 
@@ -31,18 +37,17 @@
 
       @layout.panelRegion.show panelView
 
+
     vehiclesRegion: (vehicle)->
       vehicleView = @getVehicleView(vehicle)
 
-
       formView = App.request "form:wrapper", vehicleView,
-        footer: true
-
-      @listenTo vehicleView, "form.submit", ->
-        App.vent.trigger "nada:vehicle:price", formView
+        footer: false
 
       @layout.vehiclesRegion.show formView
 
+    getPrice: (data) ->
+      console.log(data)
 
     getLayoutView: ->
       new Show.Layout

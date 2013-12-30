@@ -1,5 +1,5 @@
 <footer>
-  <div id="footer">
+  <div class="navbar navbar-fixed-bottom" id="footer">
     <div class="container">
       <p class="text-muted">Blinker Footer</p>
     </div>
