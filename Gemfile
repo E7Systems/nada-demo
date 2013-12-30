@@ -3,7 +3,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -46,3 +46,5 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
 end
+
+gem 'rails_12factor', group: :production
