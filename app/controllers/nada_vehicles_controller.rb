@@ -19,8 +19,9 @@ class NadaVehiclesController < ApplicationController
 
     respond_to do |format|
       format.json {
-        render json: { vehicle_options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name, model_name: @model_name, year: @year,
-                       make_name: @make_name, make_id: @make_id, category_id: @category_id, category_name: @category_name }
+        render json: { vehicle_options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name,
+                       model_id: @model_id, model_name: @model_name, year: @year, make_name: @make_name, make_id: @make_id,
+                       category_id: @category_id, category_name: @category_name }
       }
     end
   end

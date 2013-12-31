@@ -1,12 +1,12 @@
 <div class="well">
   <ul class="nav nav-pills nav-stacked">
 
-    <li><%= @nada_make.name %></li>
+    <li><%- @linkTo @nada_make.name, "nada_makes", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %></li>
 
     <% if @nada_make_years.length == 1: %>
-      <% for year, data in @nada_make_years:  %>
+      <% for year in @nada_make_years:  %>
          <li>
-           <%= year %>
+           <%- @linkTo year, "nada_makes/" + @nada_make.id, {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %>
          </li>
       <% end %>
     <% end %>

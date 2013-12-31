@@ -1,8 +1,8 @@
 <div class="well">
   <ul class="nav nav-pills nav-stacked">
-    <li><%= @make_name %></li>
-    <li><%= @year %></li>
-    <li><%= @category_name %></li>
-    <li><%= @model_name %></li>
-    <li><%= @vehicle_name %></li>
+    <li><%-@linkTo @make_name, "nada_makes", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %></li>
+    <li><%- @linkTo @year, "nada_makes/" + @make_id, {}, "<span class='glyphicon glyphicon-remove pull-right'></span>" %></li>
+    <li><%- @linkTo @category_name, "nada_makes/#{@make_id}?year=#{@year}", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>" %></li>
+    <li><%- @linkTo @model_name, "nada_models?make_id=#{@make_id}&make_name=#{@make_name}&category_id=#{@category_id}&category_name=#{@category_name}&year=#{@year}", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>" %></li>
+    <li><%- @linkTo @vehicle_name, "nada_vehicles?model_id=#{@model_id}&model_name=#{@model_name}&make_id=#{@make_id}&make_name=#{@make_name}&category_id=#{@category_id}&category_name=#{@category_name}&year=#{@year}", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>" %></li>
 </div>

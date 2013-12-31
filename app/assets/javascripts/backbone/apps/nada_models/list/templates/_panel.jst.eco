@@ -1,7 +1,6 @@
 <div class="well">
   <ul class="nav nav-pills nav-stacked">
-
-    <li><%= @items[0].make_name %></li>
-    <li><%= @items[0].year %></li>
-    <li><%= @items[0].category_name %></li>
+    <li><%- @linkTo @items[0].make_name, "nada_makes", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %></li>
+    <li><%- @linkTo @items[0].year, "nada_makes/" + @items[0].make_id, {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %></li>
+    <li><%- @linkTo @items[0].category_name, "nada_makes/#{@items[0].make_id}?year=#{@items[0].year}", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>" %></li>
 </div>

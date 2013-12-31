@@ -3,8 +3,8 @@
     <div class="col-lg-12">
       <h2>
         <%- @linkTo "Makes", "/nada_makes" %> -
-        <%- @items[0].make_name %> -
-        <%- @items[0].category_name %> -
+        <%- @linkTo @items[0].make_name, "/nada_makes/#{@items[0].make_id}" %> -
+        <%- @linkTo @items[0].category_name, "nada_models?make_id=#{@items[0].make_id}&make_name=#{@items[0].make_name}&category_id=#{@items[0].category_id}&category_name=#{@items[0].category_name}&year=#{@items[0].year}" %> -
         <%- @items[0].model_name %>
       </h2>
     </div>

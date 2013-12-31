@@ -1,1 +1,1 @@
-<%- @linkTo @name, "/nada_vehicles?year=" + @year + "&model_id=" + @id + "&model_name=" + @name + "&make_id=" + @make_id + "&make_name=" + @make_name + "&category_id=" + @category_id + "&category_name=" + @category_name %>
+<%- @linkTo @name, "/nada_vehicles?year=#{@year}&model_id=#{@id}&model_name=#{@name}&make_id=#{@make_id}&make_name=#{@make_name}&category_id=#{@category_id}&category_name=#{@category_name}" %>

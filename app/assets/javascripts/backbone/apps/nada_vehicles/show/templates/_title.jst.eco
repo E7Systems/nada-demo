@@ -3,9 +3,9 @@
     <div class="col-lg-12">
       <h2>
         <%- @linkTo "Makes", "/nada_makes" %> -
-        <%- @make_name %> -
-        <%- @category_name %> -
-        <%- @model_name %> -
+        <%- @linkTo @make_name, "/nada_makes/#{@make_id}" %> -
+        <%- @linkTo @category_name, "nada_models?make_id=#{@make_id}&make_name=#{@make_name}&category_id=#{@category_id}&category_name=#{@category_name}&year=#{@year}" %> -
+        <%- @linkTo @model_name, "nada_vehicles?model_id=#{@model_id}&model_name=#{@model_name}&make_id=#{@make_id}&make_name=#{@make_name}&category_id=#{@category_id}&category_name=#{@category_name}&year=#{@year}" %> -
         <%- @vehicle_name %>
       </h2>
     </div>
