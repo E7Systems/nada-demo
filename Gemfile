@@ -20,7 +20,7 @@ gem 'js-routes'
 gem 'virtus', '~> 1.0.0'
 gem 'rest-client'
 
-gem 'nada', git: "https://github.com/elchingon/nada.git"
+gem 'nada', git: "https://github.com/BlinkerGit/nada.git"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

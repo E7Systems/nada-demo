@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/elchingon/nada.git
-  revision: 7c35b0b3e67e6887a3597b2a729c3544cb5752ce
+  remote: https://github.com/BlinkerGit/nada.git
+  revision: 713f22b104157b20fa2761f8abc25b0c902f29f0
   specs:
     nada (0.0.2)
       rest-client (~> 1.6.3)
@@ -92,7 +92,7 @@ GEM
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
     fssm (0.2.10)
-    gon (5.0.0)
+    gon (5.0.1)
       actionpack (>= 2.3.0)
       json
     hike (1.2.3)
