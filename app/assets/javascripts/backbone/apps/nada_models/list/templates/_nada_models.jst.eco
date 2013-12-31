@@ -1,2 +1,4 @@
 <div>
+  <h3>Choose a Model</h3>
+  <ul class="nav nav-pills model-list"></ul>
 </div>

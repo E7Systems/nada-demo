@@ -1,7 +1,7 @@
 <div class="well">
   <ul class="nav nav-pills nav-stacked">
-
     <li><%= @items[0].make_name %></li>
     <li><%= @items[0].year %></li>
     <li><%= @items[0].category_name %></li>
+    <li><%= @items[0].model_name %></li>
 </div>

@@ -16,15 +16,15 @@
 
   class List.NadaModel extends App.Views.ItemView
     template: "nada_models/list/_nada_model"
-    tagName: "div"
+    tagName: "li"
     className: "nada-model"
 
   class List.Empty extends App.Views.ItemView
     template: "nada_models/list/_empty"
-    tagName: "div"
+    tagName: "li"
 
   class List.NadaModels extends App.Views.CompositeView
     template: "nada_models/list/_nada_models"
     itemView: List.NadaModel
     emptyView: List.Empty
-    itemViewContainer: "div"
+    itemViewContainer: ".model-list"

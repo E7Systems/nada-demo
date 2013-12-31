@@ -2,9 +2,14 @@
 
   class NadaVehiclesApp.Router extends Marionette.AppRouter
     appRoutes:
-      "nada_vehicle/:id"        : 'showVehicle'
+      "nada_vehicles"        : 'listVehicles'
+      "nada_vehicle/:id"     : 'showVehicle'
 
   API =
+    listVehicles: (options) ->
+      new NadaVehiclesApp.List.Controller
+        options: options
+
     showVehicle: (id, options) ->
       new NadaVehiclesApp.Show.Controller
         id: id

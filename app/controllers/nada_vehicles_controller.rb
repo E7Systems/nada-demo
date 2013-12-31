@@ -1,7 +1,16 @@
 class NadaVehiclesController < ApplicationController
+  respond_to :json
 
   before_filter :load_nada_client
   before_filter :set_params
+
+  def index
+
+    @vehicles = @nada_client.trims(@year, @model_id)
+    output_objs = @vehicles.map{|m| m.attributes.merge({ category_id: @category_id, category_name: @category_name })}
+    respond_with output_objs
+
+  end
 
   def show
     @vehicle_id = params[:id].to_i
@@ -10,8 +19,8 @@ class NadaVehiclesController < ApplicationController
 
     respond_to do |format|
       format.json {
-        render json: { vehicle_options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name, nada_model_name: @nada_model_name, year: @year,
-                       nada_make_name: @nada_make_name, nada_make_id: @nada_make_id, category_id: @category_id, category_name: @category_name }
+        render json: { vehicle_options: @options, vehicle_id: @vehicle_id, vehicle_name: @vehicle_name, model_name: @model_name, year: @year,
+                       make_name: @make_name, make_id: @make_id, category_id: @category_id, category_name: @category_name }
       }
     end
   end
@@ -30,12 +39,13 @@ class NadaVehiclesController < ApplicationController
   protected
 
   def set_params
-    @nada_make_id = params[:nada_make_id]
-    @nada_make_name = params[:nada_make_name]
+    @model_id = params[:model_id]
+    @model_name = params[:model_name]
+    @make_id = params[:make_id]
+    @make_name = params[:make_name]
     @year = params[:year]
     @category_id = params[:category_id]
     @category_name = params[:category_name]
-    @nada_model_name = params[:nada_model_name]
     @vehicle_id = params[:vehicle_id]
     @vehicle_name = params[:vehicle_name]
   end

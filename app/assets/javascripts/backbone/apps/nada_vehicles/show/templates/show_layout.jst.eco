@@ -1,9 +1,9 @@
-  <div id="nada-vehicles-list">
+  <div id="nada-vehicles-list" class="container">
     <div id="title-region"></div>
     <section>
       <div class="row">
-        <div id="panel-region" class="col-lg-2"></div>
-        <div id="vehicles-region" class="col-lg-10"></div>
+        <div id="panel-region" class="col-lg-3"></div>
+        <div id="vehicles-region" class="col-lg-9"></div>
       </div>
     </section>
   </div>

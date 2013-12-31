@@ -1,0 +1,4 @@
+<div>
+  <h3>Choose a Trim</h3>
+  <ul class="nav nav-pills vehicle-list"></ul>
+</div>

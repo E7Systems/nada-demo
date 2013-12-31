@@ -14,6 +14,9 @@
   class Show.Panel extends App.Views.ItemView
     template: "nada_vehicles/show/_panel"
 
+  class Show.PriceObject extends App.Views.ItemView
+    template: "nada_vehicles/show/_price_object"
+
   class Show.NadaVehicle extends App.Views.ItemView
     template: "nada_vehicles/show/_nada_vehicle"
     tagName: "div"
@@ -25,6 +28,14 @@
     events:
       "click .vehicle-back": ->
         location.reload()
+
+    triggers:
+      "form:submit": "nada:price:show"
+
+#    onFormSubmit: (data) ->
+#      console.log("OnFormSubmit", data)
+#      false
+
 
     form:
       buttons:

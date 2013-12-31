@@ -3,9 +3,9 @@
     <div class="col-lg-12">
       <h2>
         <%- @linkTo "Makes", "/nada_makes" %> -
-        <%- @nada_make_name %> -
-        <%- @category_name %> -
-        <%- @nada_model_name %>
+        <%- @items[0].make_name %> -
+        <%- @items[0].category_name %> -
+        <%- @items[0].model_name %>
       </h2>
     </div>
   </div>

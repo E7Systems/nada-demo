@@ -1,6 +1,4 @@
 <% if @price_object: %>
-  <a class="vehicle-back btn btn-inverse" href="#">Change Search</a>
-
   <h3>Values</h3>
   <div class="table-responsive">
     <table class="table table-hover text-right" >
@@ -55,6 +53,10 @@
     </table>
   </div>
 
+  <div class="pull-right">
+    <a class="vehicle-back btn btn-inverse" href="#">Change Search</a>
+  </div>
+
 <% else: %>
 
   <fieldset>
@@ -78,8 +80,10 @@
         <ul style="list-style:none;">
           <% for option in @vehicle_options:  %>
             <li>
-              <input type="checkbox" name="vehicle_options[<%= option.code %>]" class="vehicle-options" value="<%= option.code %>" <%- 'checked="checked"' if option.standard == true %> />
-              <%= option.name %>
+              <input type="checkbox" name="vehicle_options[<%= option.code %>]" class="vehicle-options regular-checkbox" value="<%= option.code %>" <%- 'checked="checked"' if option.standard == true %> />
+              <label for="vehicle-options">
+                <span><%= option.name %></span>
+              </label>
             </li>
           <% end %>
         </ul>
