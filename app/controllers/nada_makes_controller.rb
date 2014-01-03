@@ -12,22 +12,21 @@ class NadaMakesController < ApplicationController
   end
 
   def show
-    @nada_make_years = []
-    @nada_make_categories = []
+    @years = []
+    @categories = []
     # TODO wireup Backbone to maintain original makes array so only nada_make_id needed
     makes =  @nada_client.makes
     @nada_make = makes.find { |make| make.id == params[:id].to_i }
-
-    @nada_make_categories = @nada_client.categories(@nada_make, params[:year]) if params[:year].present?
+    @categories = @nada_client.categories(@nada_make, params[:year]) if params[:year].present?
 
     if params[:year].present?
-      @nada_make_years = [ params[:year].to_i ]
+      @years = [ params[:year].to_i ]
     elsif @nada_make.present?
-      @nada_make_years = @nada_client.years(@nada_make)
+      @years = @nada_client.years(@nada_make)
     end
 
     respond_to do |format|
-      format.json { render json: { nada_make: @nada_make, nada_make_years: @nada_make_years, nada_make_categories: @nada_make_categories } }
+      format.json { render json: { nada_make: @nada_make, years: @years, categories: @categories } }
     end
   end
 

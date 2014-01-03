@@ -1,6 +1,7 @@
 NadaDemo::Application.routes.draw do
 
 
+  devise_for :users
   resources :nada_makes, only: [:show, :index]
 
   resources :nada_models, only: [:show, :index]

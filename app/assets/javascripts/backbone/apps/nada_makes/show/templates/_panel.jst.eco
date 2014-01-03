@@ -3,8 +3,8 @@
 
     <li><%- @linkTo @nada_make.name, "nada_makes", {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %></li>
 
-    <% if @nada_make_years.length == 1: %>
-      <% for year in @nada_make_years:  %>
+    <% if @years.length == 1: %>
+      <% for year in @years:  %>
          <li>
            <%- @linkTo year, "nada_makes/" + @nada_make.id, {}, "<span class='glyphicon glyphicon-remove pull-right'></span>"  %>
          </li>
